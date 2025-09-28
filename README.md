@@ -68,6 +68,7 @@ NODE_ENV=development
 3. **Add middleware:** Insert custom middleware in `middleware/` directory
 4. **Database integration:** Replace mock data with database calls
 5. **Add new assets:** Place static files in `assets/` directory
+6. **Project specific:** Add inside projects folder
 
 ## Troubleshooting
 

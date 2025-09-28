@@ -21,15 +21,18 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
 // Serve static assets
-app.use("/assets", express.static("d-learning/assets"));
+app.use("/assets", express.static("projects/d-learning/assets"));
 
 // Routes
 app.use("/hi", hiRoutes);
 app.use("/health", healthRoutes);
-app.use("/api/classes", require("./d-learning/routes/classes"));
-app.use("/api/assignments", require("./d-learning/routes/assignments"));
-app.use("/api/tests", require("./d-learning/routes/tests"));
-app.use("/api/courses", require("./d-learning/routes/courses"));
+app.use("/api/classes", require("./projects/d-learning/routes/classes"));
+app.use(
+  "/api/assignments",
+  require("./projects/d-learning/routes/assignments")
+);
+app.use("/api/tests", require("./projects/d-learning/routes/tests"));
+app.use("/api/courses", require("./projects/d-learning/routes/courses"));
 
 // 404 handler
 app.use((req, res) => {
