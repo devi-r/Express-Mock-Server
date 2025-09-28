@@ -4,9 +4,17 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "projects/d-learning/assets/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/projects/d-learning/assets/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "server.js"
