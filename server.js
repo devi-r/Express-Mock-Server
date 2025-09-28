@@ -23,6 +23,15 @@ app.use(logger);
 // Serve static assets
 app.use("/assets", express.static("projects/d-learning/assets"));
 
+// Default route
+app.get("/", (req, res) => {
+  res.json({
+    name: "Devi R",
+    email: "devi.frontend@gmail.com",
+    linkedin: "https://www.linkedin.com/in/devi-r-06bb94a7/",
+  });
+});
+
 // Routes
 app.use("/hi", hiRoutes);
 app.use("/health", healthRoutes);
