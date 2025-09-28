@@ -22,6 +22,8 @@ A lightweight Node.js server using Express.js for serving mock data to the 'D fr
 
 3. **Server will start on:** `http://localhost:3001`
 
+**Production server:** `https://express-mock-server-rose.vercel.app`
+
 ## API Endpoints
 
 ### Health Check

@@ -55,6 +55,9 @@ app.listen(PORT, () => {
   console.log(`   Assignments: http://localhost:${PORT}/api/assignments`);
   console.log(`   Tests: http://localhost:${PORT}/api/tests`);
   console.log(`   Courses: http://localhost:${PORT}/api/courses`);
+  console.log(
+    `\n🌐 Production server: https://express-mock-server-rose.vercel.app`
+  );
 });
 
 module.exports = app;
