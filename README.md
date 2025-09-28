@@ -48,13 +48,6 @@ The server includes a CORS whitelist that only allows requests from approved dom
 
 To add your production domains, edit the `allowedOrigins` array in `server.js`:
 
-## Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-PORT=3001
-NODE_ENV=development
 ```
 
 ## Development
@@ -88,3 +81,4 @@ NODE_ENV=development
 ## Author
 
 - **[Devi R](https://www.linkedin.com/in/devi-r-06bb94a7)**
+```
