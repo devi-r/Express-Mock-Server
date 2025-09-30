@@ -20,7 +20,7 @@ A lightweight Node.js server using Express.js for serving mock data to the 'D fr
    npm start
    ```
 
-3. **Server will start on:** `http://localhost:3001`
+3. **Server will start on:** `http://localhost:4000`
 
 **Production server:** `https://express-mock-server-rose.vercel.app`
 
@@ -31,16 +31,35 @@ A lightweight Node.js server using Express.js for serving mock data to the 'D fr
 - `GET /health` - Server health status
 - `GET /hi` - Simple greeting endpoint
 
-### D - Learning
+### Post-Login Dashboard API
 
-- `GET /api/classes` - Get all upcoming classes
-- `GET /api/assignments` - Get all assignments
-- `GET /api/tests` - Get all shared tests
-- `GET /api/courses` - Get all enrolled courses
+#### Configuration
 
-### Static Assets
+## POST LOGIN DASHBOARD
 
-- `GET /assets/teacher-profiles/*` - Serve teacher profile images
+- `GET /api/post-login-dashboard/config` - Get dashboard configuration
+  - Query params: `product_type` (optional) - Filter by product type
+
+#### Section Data
+
+- `GET /api/post-login-dashboard/section-a` - Get section-a data
+
+  - Query params: `product_type` (optional)
+
+- `GET /api/post-login-dashboard/section-b` - Get section-b data
+
+  - Query params: `product_type` (optional)
+
+- `GET /api/post-login-dashboard/section-c` - Get section-c data
+
+  - Query params: `product_type` (optional)
+
+- `GET /api/post-login-dashboard/section-d` -Get section-d data
+  - Query params: `product_type` (optional)
+
+## Static Assets
+
+- `GET /assets/people/*` - Serve people profile images
 
 ## CORS Configuration
 
