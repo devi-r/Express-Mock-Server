@@ -12,7 +12,7 @@ const hiRoutes = require("./routes/hi");
 const healthRoutes = require("./routes/health");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors(corsOptions));
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
 // Serve static assets
-app.use("/assets", express.static("projects/d-learning/assets"));
+app.use("/assets", express.static("projects/post-login-dashboard/assets"));
 
 // Default route
 app.get("/", (req, res) => {
@@ -35,13 +35,26 @@ app.get("/", (req, res) => {
 // Routes
 app.use("/hi", hiRoutes);
 app.use("/health", healthRoutes);
-app.use("/api/classes", require("./projects/d-learning/routes/classes"));
 app.use(
-  "/api/assignments",
-  require("./projects/d-learning/routes/assignments")
+  "/api/post-login-dashboard/section-a",
+  require("./projects/post-login-dashboard/routes/section-a")
 );
-app.use("/api/tests", require("./projects/d-learning/routes/tests"));
-app.use("/api/courses", require("./projects/d-learning/routes/courses"));
+app.use(
+  "/api/post-login-dashboard/section-b",
+  require("./projects/post-login-dashboard/routes/section-b")
+);
+app.use(
+  "/api/post-login-dashboard/section-c",
+  require("./projects/post-login-dashboard/routes/section-c")
+);
+app.use(
+  "/api/post-login-dashboard/section-d",
+  require("./projects/post-login-dashboard/routes/section-d")
+);
+app.use(
+  "/api/post-login-dashboard/config",
+  require("./projects/post-login-dashboard/routes/config")
+);
 
 // 404 handler
 app.use((req, res) => {
@@ -57,13 +70,6 @@ app.use(errorHandler);
 // Start server
 app.listen(PORT, () => {
   console.log(`🚀 Mock server running on port ${PORT}`);
-  console.log(`👋 Hi endpoint: http://localhost:${PORT}/hi`);
-  console.log(`📊 Health check: http://localhost:${PORT}/health`);
-  console.log(`\nD-Learning APIs:`);
-  console.log(`   Classes: http://localhost:${PORT}/api/classes`);
-  console.log(`   Assignments: http://localhost:${PORT}/api/assignments`);
-  console.log(`   Tests: http://localhost:${PORT}/api/tests`);
-  console.log(`   Courses: http://localhost:${PORT}/api/courses`);
   console.log(
     `\n🌐 Production server: https://express-mock-server-rose.vercel.app`
   );

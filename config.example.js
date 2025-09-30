@@ -3,7 +3,7 @@
 
 module.exports = {
   // Server port
-  PORT: process.env.PORT || 3001,
+  PORT: process.env.PORT || 4000,
 
   // CORS allowed origins
   // Add your production domains here

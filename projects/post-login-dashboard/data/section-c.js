@@ -1,5 +1,5 @@
 // Mock data for tests
-const sharedTests = [
+const learningTests = [
   {
     id: 1,
     subject: "CHM",
@@ -36,4 +36,29 @@ const sharedTests = [
   },
 ];
 
-module.exports = sharedTests;
+// Product type data structure
+const productData = {
+  learning: {
+    getData: () => learningTests,
+  },
+  // Future product types can be added here
+  // ecommerce: {
+  //   getData: () => ecommerceTests
+  // },
+  // healthcare: {
+  //   getData: () => healthcareTests
+  // }
+};
+
+// Function to get data by product type
+const getDataByProductType = (productType = "learning") => {
+  if (productData[productType] && productData[productType].getData) {
+    return productData[productType].getData();
+  }
+  // Default to learning if product type not found
+  return productData.learning.getData();
+};
+
+// For backward compatibility
+module.exports = learningTests;
+module.exports.getDataByProductType = getDataByProductType;

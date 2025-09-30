@@ -1,5 +1,5 @@
 // Mock data for courses
-const enrolledCourses = [
+const learningCourses = [
   {
     id: 1,
     title: "Maths course March",
@@ -62,4 +62,29 @@ const enrolledCourses = [
   },
 ];
 
-module.exports = enrolledCourses;
+// Product type data structure
+const productData = {
+  learning: {
+    getData: () => learningCourses,
+  },
+  // Future product types can be added here
+  // ecommerce: {
+  //   getData: () => ecommerceCourses
+  // },
+  // healthcare: {
+  //   getData: () => healthcareCourses
+  // }
+};
+
+// Function to get data by product type
+const getDataByProductType = (productType = "learning") => {
+  if (productData[productType] && productData[productType].getData) {
+    return productData[productType].getData();
+  }
+  // Default to learning if product type not found
+  return productData.learning.getData();
+};
+
+// For backward compatibility
+module.exports = learningCourses;
+module.exports.getDataByProductType = getDataByProductType;

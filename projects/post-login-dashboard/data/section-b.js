@@ -1,5 +1,5 @@
 // Mock data for assignments
-const assignments = [
+const learningAssignments = [
   {
     id: 1,
     type: "PDF",
@@ -35,4 +35,29 @@ const assignments = [
   },
 ];
 
-module.exports = assignments;
+// Product type data structure
+const productData = {
+  learning: {
+    getData: () => learningAssignments,
+  },
+  // Future product types can be added here
+  // ecommerce: {
+  //   getData: () => ecommerceAssignments
+  // },
+  // healthcare: {
+  //   getData: () => healthcareAssignments
+  // }
+};
+
+// Function to get data by product type
+const getDataByProductType = (productType = "learning") => {
+  if (productData[productType] && productData[productType].getData) {
+    return productData[productType].getData();
+  }
+  // Default to learning if product type not found
+  return productData.learning.getData();
+};
+
+// For backward compatibility
+module.exports = learningAssignments;
+module.exports.getDataByProductType = getDataByProductType;

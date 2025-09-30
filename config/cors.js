@@ -9,7 +9,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5173",
   "http://127.0.0.1:8080",
   // Add your production domains here
-  "https://react-d-learning.onrender.com",
+  "https://react-post-login-dashboard.onrender.com",
 ];
 
 // CORS configuration with whitelist

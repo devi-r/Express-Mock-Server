@@ -1,13 +1,13 @@
-// Mock data for classes/upcoming classes
+// Mock data for events/upcoming events
 const now = new Date();
-const firstClassStart = new Date(now.getTime() + 2 * 60 * 1000); // 2 minutes from now
-const firstClassEnd = new Date(firstClassStart.getTime() + 60 * 60 * 1000); // 60 minutes later
+const firstEventStart = new Date(now.getTime() + 1 * 60 * 1000); // 1 minutes from now
+const firstEventEnd = new Date(firstEventStart.getTime() + 60 * 60 * 1000); // 60 minutes later
 
 // Get base URL based on environment
 const getBaseUrl = (isProduction = false) => {
   return isProduction
     ? "https://express-mock-server-rose.vercel.app"
-    : "http://localhost:3001";
+    : "http://localhost:4000";
 };
 
 const formatTime = (date) => {
@@ -33,12 +33,12 @@ const getUpcomingClasses = (isProduction = false) => {
     {
       id: 1,
       title: "Natural Resources",
-      time: formatTime(firstClassStart),
-      startTime: firstClassStart.toISOString(),
-      endTime: firstClassEnd.toISOString(),
+      time: formatTime(firstEventStart),
+      startTime: firstEventStart.toISOString(),
+      endTime: firstEventEnd.toISOString(),
       instructor: "By Akash",
       instructorId: "akash",
-      teacherProfilePic: `${baseUrl}/assets/teacher-profiles/akash.png`,
+      teacherProfilePic: `${baseUrl}/assets/people/akash.png`,
       status: "upcoming",
       duration: "60 mins",
       subject: "Biology",
@@ -52,7 +52,7 @@ const getUpcomingClasses = (isProduction = false) => {
       endTime: new Date(now.getTime() + 3.5 * 60 * 60 * 1000).toISOString(), // 3.5 hours from now
       instructor: "By Rupali",
       instructorId: "rupali",
-      teacherProfilePic: `${baseUrl}/assets/teacher-profiles/rupali.png`,
+      teacherProfilePic: `${baseUrl}/assets/people/rupali.png`,
       status: "upcoming",
       duration: "90 mins",
       subject: "Physics",
@@ -67,7 +67,7 @@ const getUpcomingClasses = (isProduction = false) => {
       endTime: new Date(now.getTime() + 25.25 * 60 * 60 * 1000).toISOString(), // 25.25 hours from now
       instructor: "By Archana",
       instructorId: "archana",
-      teacherProfilePic: `${baseUrl}/assets/teacher-profiles/archana.png`,
+      teacherProfilePic: `${baseUrl}/assets/people/archana.png`,
       status: "upcoming",
       duration: "75 mins",
       subject: "Mathematics",
@@ -82,7 +82,7 @@ const getUpcomingClasses = (isProduction = false) => {
       endTime: new Date(now.getTime() + 50 * 60 * 60 * 1000).toISOString(), // 50 hours from now
       instructor: "By Prof. Johnson",
       instructorId: "prof-johnson",
-      teacherProfilePic: `${baseUrl}/assets/teacher-profiles/prof-johnson.png`,
+      teacherProfilePic: `${baseUrl}/assets/people/prof-johnson.png`,
       status: "upcoming",
       duration: "120 mins",
       subject: "Chemistry",
@@ -91,8 +91,35 @@ const getUpcomingClasses = (isProduction = false) => {
   ];
 };
 
-// For backward compatibility, export the default data (development)
-const upcomingClasses = getUpcomingClasses(false);
+// Product type data structure
+const productData = {
+  learning: {
+    getData: getUpcomingClasses,
+  },
+  // Future product types can be added here
+  // ecommerce: {
+  //   getData: getEcommerceEvents
+  // },
+  // healthcare: {
+  //   getData: getHealthcareEvents
+  // }
+};
 
-module.exports = upcomingClasses;
+// Function to get data by product type
+const getDataByProductType = (
+  productType = "learning",
+  isProduction = false
+) => {
+  if (productData[productType] && productData[productType].getData) {
+    return productData[productType].getData(isProduction);
+  }
+  // Default to learning if product type not found
+  return productData.learning.getData(isProduction);
+};
+
+// For backward compatibility, export the default data (development)
+const upcomingEvents = getUpcomingClasses(false);
+
+module.exports = upcomingEvents;
 module.exports.getUpcomingClasses = getUpcomingClasses;
+module.exports.getDataByProductType = getDataByProductType;
