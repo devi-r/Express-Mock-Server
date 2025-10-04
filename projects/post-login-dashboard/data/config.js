@@ -45,31 +45,72 @@ const config_learning = {
   ],
 };
 
-const config_gamified = {
-  brand: "LevelUp Academy",
+const config_design_studio = {
+  // Brand identity
+  brand: "Design Studio",
+
+  // Primary navigation links
   nav: [
-    { title: "My Journey" },
-    { title: "Challenges" },
-    { title: "Live Events" },
-    { title: "Rewards" },
+    {
+      title: "Workshops", // Replaces 'Classes'
+    },
+    {
+      title: "Resource Library", // Replaces 'Subscriptions'
+    },
+    {
+      title: "Portfolio Critique", // Focus on actionable design feedback
+    },
+    {
+      title: "Inspiration", // Replaces 'Content'
+    },
   ],
-  nav_button: [{ label: "2,450 XP" }],
-  page_title: "Ready to play, Devi?",
-  section_a_title: "Live Missions & Events",
+
+  // Navigation button/user status indicator
+  nav_button: [
+    {
+      label: "35 Credits", // Design-focused currency
+    },
+  ],
+
+  // Main page title/greeting
+  page_title: "Welcome, Designer",
+
+  // Section A: Live, high-priority sessions
+  section_a_title: "On Air & Next Up",
   section_a_cta_text: "View All",
-  section_a_action_btn_1_text: "Mission Replays & Strategy",
-  section_a_action_btn_2_text: "View Event Calendar",
-  section_b_title: "Active Quests",
-  section_b_cta_text: "View Quest Log",
-  section_c_title: "Skill Challenges",
-  section_c_cta_text: "Face All Challenges",
-  section_d_title: "New Worlds to Explore",
-  section_d_cta_text: "Explore Map",
-  section_e_title: "Daily XP Boost",
-  section_e_cta_text: "Start Daily Quest",
+  section_a_action_btn_1_text: "Recordings & Assets", // Assets are key in design
+  section_a_action_btn_2_text: "Studio Calendar",
+
+  // Section B: Projects
+  section_b_title: "Challenges", // Replaces 'Assignments'
+  section_b_cta_text: "View All",
+
+  // Section C: Knowledge Checks
+  section_c_title: "Cheatsheets", // Replaces 'Tests'
+  section_c_cta_text: "View All",
+
+  // Section D: Long-form learning
+  section_d_title: "Courses",
+  section_d_cta_text: "View All",
+
+  // Section E: Gamification/engagement
+  section_e_title: "Design Milestones", // Focus on career progression
+  section_e_cta_text: "Claim Daily Brief", // 'Brief' is a design term
   section_e_description:
-    "Conquer your daily quests to level up faster and unlock epic rewards.",
-  floating_button_text: "Get a Hint",
+    "Complete daily design briefs to unlock badges and track your creative progress",
+
+  // Floating support button
+  floating_button_text: "Ask Mentor AI",
+
+  // Aesthetic configuration
+  primary_color: "#a12850", // A professional, calming teal/cyan
+  product_types: [
+    {
+      label: "Design",
+      value: "design",
+      description: "Specialized UI/UX, branding, and motion design resources",
+    },
+  ],
 };
 
 // Product type data structure
@@ -77,17 +118,18 @@ const productData = {
   learning: {
     getData: () => config_learning,
   },
+  design: {
+    getData: () => config_design_studio,
+  },
 };
 
 // Function to get data by product type
 const getDataByProductType = (productType = "learning") => {
-  if (productData[productType] && productData[productType].getData) {
-    return productData[productType].getData();
-  }
+  // if (productData[productType] && productData[productType].getData) {
+  //   return productData[productType].getData();
+  // }
   // Default to learning if product type not found
-  return productData.learning.getData();
+  return productData.design.getData();
 };
 
-// For backward compatibility
-module.exports = config_learning;
 module.exports.getDataByProductType = getDataByProductType;

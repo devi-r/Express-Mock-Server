@@ -8,6 +8,7 @@ const learningCourses = [
     progress: 100,
     instructor: "Dr. Smith",
     subject: "Mathematics",
+    color_tag: "color_1",
     startDate: "2024-03-01",
     endDate: "2024-12-10",
     totalLessons: 50,
@@ -23,6 +24,7 @@ const learningCourses = [
     progress: 100,
     instructor: "Prof. Johnson",
     subject: "Physics",
+    color_tag: "color_3",
     startDate: "2024-04-11",
     endDate: "2024-12-12",
     totalLessons: 45,
@@ -38,6 +40,7 @@ const learningCourses = [
     progress: 65,
     instructor: "Dr. Wilson",
     subject: "Chemistry",
+    color_tag: "color_7",
     startDate: "2024-01-15",
     endDate: "2024-06-30",
     totalLessons: 30,
@@ -53,6 +56,7 @@ const learningCourses = [
     progress: 40,
     instructor: "By Pooja",
     subject: "Biology",
+    color_tag: "color_4",
     startDate: "2024-02-20",
     endDate: "2024-08-15",
     totalLessons: 25,
@@ -62,29 +66,50 @@ const learningCourses = [
   },
 ];
 
+const designData = [
+  {
+    id: 9,
+    title: "The Future of Design: AR, VR & Immersive Experiences",
+    color_tag: "color_7",
+    subject: "AR/VR Design",
+  },
+  {
+    id: 2,
+    title: "Prototyping Like a Pro: Figma, XD & Beyond",
+    color_tag: "color_3",
+    subject: "Prototyping",
+  },
+  {
+    id: 8,
+    title: "Color Psychology for Designers",
+    color_tag: "color_8",
+    subject: "Color Theory",
+  },
+  {
+    id: 5,
+    title: "Logos, Colors & Storytelling",
+    color_tag: "color_5",
+    subject: "Branding",
+  },
+];
+
 // Product type data structure
 const productData = {
   learning: {
     getData: () => learningCourses,
   },
-  // Future product types can be added here
-  // ecommerce: {
-  //   getData: () => ecommerceCourses
-  // },
-  // healthcare: {
-  //   getData: () => healthcareCourses
-  // }
+  design: {
+    getData: () => designData,
+  },
 };
 
 // Function to get data by product type
-const getDataByProductType = (productType = "learning") => {
+const getDataByProductType = (productType = "design") => {
   if (productData[productType] && productData[productType].getData) {
     return productData[productType].getData();
   }
-  // Default to learning if product type not found
-  return productData.learning.getData();
+  // Default to design if product type not found
+  return productData.design.getData();
 };
 
-// For backward compatibility
-module.exports = learningCourses;
 module.exports.getDataByProductType = getDataByProductType;

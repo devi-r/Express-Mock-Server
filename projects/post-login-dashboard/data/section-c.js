@@ -3,6 +3,7 @@ const learningTests = [
   {
     id: 1,
     subject: "CHM",
+    color_tag: "color_7",
     title: "Thermodynamics And Thermochemistry - Neet",
     duration: "30 mins",
     totalQuestions: 25,
@@ -15,6 +16,7 @@ const learningTests = [
   {
     id: 2,
     subject: "BIO",
+    color_tag: "color_5",
     title: "ICSE 10 Biology Full Test 2",
     duration: "3 hours",
     totalQuestions: 50,
@@ -26,6 +28,7 @@ const learningTests = [
   {
     id: 3,
     subject: "MTH",
+    color_tag: "color_3",
     title: "JEE Advanced Coordinate Geometry",
     duration: "2 mins",
     totalQuestions: 5,
@@ -36,29 +39,41 @@ const learningTests = [
   },
 ];
 
+const designData = [
+  {
+    id: 3,
+    title: "Visual Hierarchy Playbook",
+    color_tag: "color_4",
+  },
+  {
+    id: 7,
+    title: "Color Palette Toolkit",
+    color_tag: "color_5",
+  },
+  {
+    id: 6,
+    title: "Inclusive Design Guide",
+    color_tag: "color_1",
+  },
+];
+
 // Product type data structure
 const productData = {
   learning: {
     getData: () => learningTests,
   },
-  // Future product types can be added here
-  // ecommerce: {
-  //   getData: () => ecommerceTests
-  // },
-  // healthcare: {
-  //   getData: () => healthcareTests
-  // }
+  design: {
+    getData: () => designData,
+  },
 };
 
 // Function to get data by product type
-const getDataByProductType = (productType = "learning") => {
+const getDataByProductType = (productType = "design") => {
   if (productData[productType] && productData[productType].getData) {
     return productData[productType].getData();
   }
-  // Default to learning if product type not found
-  return productData.learning.getData();
+  // Default to design if product type not found
+  return productData.design.getData();
 };
 
-// For backward compatibility
-module.exports = learningTests;
 module.exports.getDataByProductType = getDataByProductType;

@@ -4,8 +4,8 @@ const { getDataByProductType } = require("../data/section-a");
 
 // GET /section-a - Get all upcoming events for Section A
 router.get("/", (req, res) => {
-  // Get product_type from query parameter, default to 'learning'
-  const productType = req.query.product_type || "learning";
+  // Get product_type from query parameter, default to 'design'
+  const productType = req.query.product_type || "design";
 
   // Determine if we're in production based on host or environment
   const isProduction =

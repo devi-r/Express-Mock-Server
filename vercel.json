@@ -6,14 +6,14 @@
       "use": "@vercel/node"
     },
     {
-      "src": "projects/post-login-dashboard/assets/**",
+      "src": "assets/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/assets/(.*)",
-      "dest": "/projects/post-login-dashboard/assets/$1"
+      "dest": "/assets/$1"
     },
     {
       "src": "/(.*)",

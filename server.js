@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
 // Serve static assets
-app.use("/assets", express.static("projects/post-login-dashboard/assets"));
+app.use("/assets", express.static("assets"));
 
 // Default route
 app.get("/", (req, res) => {
@@ -54,6 +54,16 @@ app.use(
 app.use(
   "/api/post-login-dashboard/config",
   require("./projects/post-login-dashboard/routes/config")
+);
+
+// Ecommerce catalogue routes
+app.use(
+  "/api/ecommerce/filters",
+  require("./projects/ecommerce-catalogue/routes/filters")
+);
+app.use(
+  "/api/ecommerce/items",
+  require("./projects/ecommerce-catalogue/routes/items")
 );
 
 // 404 handler
