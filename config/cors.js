@@ -7,7 +7,7 @@ const allowedOrigins = [
   // Add your production domains here
   "https://react-post-login-dashboard.onrender.com",
   "https://react-ecommerce-catalogue-page.onrender.com",
-  "https://react-microfrontends-portfolio.onrender.com/",
+  "https://react-microfrontends-portfolio.onrender.com",
 ];
 
 // CORS configuration with whitelist
