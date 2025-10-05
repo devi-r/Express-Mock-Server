@@ -8,6 +8,8 @@ const allowedOrigins = [
   "https://react-post-login-dashboard.onrender.com",
   "https://react-ecommerce-catalogue-page.onrender.com",
   "https://react-microfrontends-portfolio.onrender.com",
+  "https://devi-r.com",
+  "https://devir.netlify.app/",
 ];
 
 // CORS configuration with whitelist
