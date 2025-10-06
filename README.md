@@ -35,8 +35,6 @@ A lightweight Node.js server using Express.js for serving mock data to the 'D fr
 
 #### Configuration
 
-## POST LOGIN DASHBOARD
-
 - `GET /api/post-login-dashboard/config` - Get dashboard configuration
   - Query params: `product_type` (optional) - Filter by product type
 
@@ -54,8 +52,29 @@ A lightweight Node.js server using Express.js for serving mock data to the 'D fr
 
   - Query params: `product_type` (optional)
 
-- `GET /api/post-login-dashboard/section-d` -Get section-d data
+- `GET /api/post-login-dashboard/section-d` - Get section-d data
   - Query params: `product_type` (optional)
+
+### Ecommerce Catalogue API
+
+#### Filters
+
+- `GET /api/ecommerce/filters` - Get all available filters
+  - Returns: Complete filters data with dynamic counts
+
+#### Items
+
+- `GET /api/ecommerce/items` - Get items with filtering, sorting, and pagination
+  - Query params:
+    - `gender` (single select): men, women, boys, girls
+    - `category` (multi-select): Headphones, Smart Watches, Casual Shoes, etc. (comma-separated)
+    - `brand` (multi-select): boAt, Nike, Puma, etc. (comma-separated)
+    - `color` (multi-select): Black, White, Blue, etc. (comma-separated)
+    - `price_range` (multi-select): Format `min-max` e.g., `25-1000,1000-3500` (comma-separated)
+    - `discount_range` (single select): Format `min-max` e.g., `10-100`
+    - `sort` (single select): popularity, trending, recommended, price_low_to_high, price_high_to_low, discount_high_to_low, newest
+    - `page` (number): Page number for pagination (default: 1)
+    - `pageSize` (number): Items per page (default: 20, max: 100)
 
 ## Static Assets
 
