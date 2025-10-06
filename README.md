@@ -115,8 +115,8 @@ To add your production domains, edit the `allowedOrigins` array in `server.js`:
 
 - Change the `PORT` in your `.env` file
 - Or kill the process using the port: `lsof -ti:3001 | xargs kill -9`
+```
 
 ## Author
 
 - **[Devi R](https://www.linkedin.com/in/devi-r-06bb94a7)**
-```
